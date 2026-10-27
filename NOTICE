@@ -1,0 +1,36 @@
+eudi_lib_x509
+Copyright (c) 2026 the eudi_lib_x509 contributors
+
+This product is a Cangjie (仓颉) X.509 certificate module for the EU Digital
+Identity Wallet on HarmonyOS. It wraps the platform X.509 capability
+(stdx.crypto.x509) behind a stable facade and adds CRL (RFC 5280) parsing /
+revocation checking and certificate extension utilities that the platform
+library does not provide.
+
+The interface surface is driven by the consumer usage of the EU Digital
+Identity Wallet ISO 18013-5 security library for Swift:
+
+    eudi-lib-ios-iso18013-security
+    Copyright (c) European Commission
+    Licensed under the Apache License, Version 2.0
+    https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-security
+
+(That Swift library uses apple/swift-certificates + swift-asn1 for X.509;
+this Cangjie module replaces them with stdx.crypto.x509 + a hand-written
+RFC 5280 CRL/DER layer for the gaps.)
+
+This product depends on and/or bundles the following third-party software:
+
+  - cangjie-stdx 1.1.3.1 (Apache License 2.0) — Cangjie extended standard
+    library; stdx.crypto.x509 backs certificate parsing and chain validation.
+    Bundled under entry/libs/stdx/.
+
+  - OpenSSL runtime libraries (libcrypto_openssl.z.so, libssl_openssl.z.so)
+    and libsecurec.so, bundled under entry/libs/arm64-v8a/ for on-device
+    execution of stdx.crypto.x509 (loaded via dlopen at runtime).
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not
+use this project except in compliance with the License. You may obtain a
+copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0

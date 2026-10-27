@@ -1,0 +1,9 @@
+{
+  "module": {
+    "name": "eudi_cjx509",
+    "type": "har",
+    "deviceTypes": [
+      "default"
+    ]
+  }
+}
